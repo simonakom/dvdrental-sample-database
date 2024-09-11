@@ -114,7 +114,7 @@ select * from inventory
 select * from rental
 select * from payment
 
----------Join tables---------
+---------Join tables--------
 
 SELECT
     f.title,
