@@ -1,6 +1,7 @@
 # SQL practice task
 
 ## Restore the database locally:
+
 Dowlnoad databse: https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/
 
 ## Practice `Group by` with different `joins`:
