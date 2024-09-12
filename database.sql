@@ -7,7 +7,7 @@
 select * from customer
 select * from rental
 
----------View all customers and their rentals  made in 2005---------
+---------View all customers and their rentals made in 2005---------
 
 SELECT                 --Specifies which data is retrieve
     c.customer_id, 
@@ -20,17 +20,17 @@ FROM                  --Specifies the base table (customer) from which data is r
 JOIN                  --The rental table is being joined to the customer table using the customer_id as the common column
     rental r 
     ON c.customer_id = r.customer_id
-WHERE                 --Filtering only rentals that took place in 2005.
+WHERE                 --Filtering only rentals that took place in 2005
     EXTRACT(YEAR FROM r.rental_date) = 2005;
 
 
----------Count the number of rentals per customer and sort---------
+----------Count the number of rentals per customer and sort----------
  
 SELECT                                   
     c.customer_id, 
     c.first_name, 
     c.last_name,  
-    COUNT(r.rental_id) AS rental_count        --Counts the number of rental transactions per customer. Each rental is identified by its rental_id. 
+    COUNT(r.rental_id) AS rental_count        --Counts the number of rental transactions per customer. Each rental is identified by its rental_id
 FROM                     
     customer c
 JOIN                  
@@ -38,8 +38,8 @@ JOIN
     ON c.customer_id = r.customer_id
 WHERE 
     EXTRACT(YEAR FROM r.rental_date) = 2005
-GROUP BY                                      --Groups by customer ID to count rentals per customer.
-    c.customer_id, c.first_name, c.last_name  --Groups by first and last names to include the full name in the result.
+GROUP BY                                      --Groups by customer ID to count rentals per customer
+    c.customer_id, c.first_name, c.last_name  --Groups by first and last names to include the full name in the result
 ORDER BY 
     rental_count DESC;                        --Descending order of rental_count
 
@@ -62,7 +62,7 @@ ORDER BY
 LIMIT 1;                                     
 
 --------------------------------------------------------------------------------------
---2. Get top 3 actors who have been involved in most movies.
+--2. Get top 3 actors who have been involved in most movies
 --------------------------------------------------------------------------------------
 
 ---------Tables---------
@@ -71,7 +71,7 @@ select * from actor
 select * from film_actor
 select * from film
 
----------Join tables---------
+---------Join tables--------
 
 SELECT 
     a.actor_id, 
@@ -81,9 +81,9 @@ SELECT
     f.title
 FROM 
     actor a
-JOIN                                     --inner join between the actor table and the film_actor table based on actor_id
+JOIN                                     --Inner join between the actor table and the film_actor table based on actor_id
     film_actor fa ON a.actor_id = fa.actor_id
-JOIN                                     --inner join between the result of the previous join and the film table based on film_id
+JOIN                                     --Inner join between the result of the previous join and the film table based on film_id
     film f ON fa.film_id = f.film_id;
 
 ---------Count number of movies per actor and limit to 3---------
@@ -92,7 +92,7 @@ SELECT
     a.actor_id, 
     a.first_name, 
     a.last_name, 
-    COUNT(fa.film_id) AS movie_count     -- counts the number of rows in the film_actor table where actor_id matches, representing the number of films the actor has appeared in
+    COUNT(fa.film_id) AS movie_count     --Counts the number of rows in the film_actor table where actor_id matches, representing the number of films the actor has appeared in
 FROM 
     actor a
 JOIN 
