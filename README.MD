@@ -12,5 +12,3 @@ Dowlnoad databse: https://www.postgresqltutorial.com/postgresql-getting-started/
 
 
 
-
-
