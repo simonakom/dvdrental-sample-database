@@ -11,4 +11,3 @@ Dowlnoad databse: https://www.postgresqltutorial.com/postgresql-getting-started/
 3. Get the movie which has been the most profitable.
 
 
-
